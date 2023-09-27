@@ -4,19 +4,54 @@
     {
         static void Main(string[] args)
         {
-            double distance = 10; // Начальный пробег спортсмена
-            int day = 1; // Номер текущего дня
+            Console.WriteLine("Введите год:");
+            int year = Convert.ToInt32(Console.ReadLine());
 
-            while (distance < 20) // Проверка пробега спортсмена
+            Console.WriteLine("Введите номер месяца (от 1 до 12):");
+            int month = Convert.ToInt32(Console.ReadLine());
+
+            int daysInMonth = GetDaysInMonth(year, month);
+            Console.WriteLine("Количество дней в указанном месяце: " + daysInMonth);
+        }
+
+        static int GetDaysInMonth(int year, int month)
+        {
+            bool isLeapYear = IsLeapYear(year);
+
+            switch (month)
             {
-                distance += distance * 0.1; // Увеличение пробега на 10%
+                case 2:
+                    return isLeapYear ? 29 : 28;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    return 30;
+                default:
+                    return 31;
+            }
+        }
 
-                day++; // Увеличение номера дня
+        static bool IsLeapYear(int year)
+        {
+            if (year % 4 != 0)
+            {
+                return false;
+            }
+            else if (year % 100 != 0)
+            {
+                return true;
+            }
+            else if (year % 400 != 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
 
-            Console.WriteLine($"Пробег спортсмена составит не менее 20 километров на {day} день");
         }
-    
-    
+
     }
 }
