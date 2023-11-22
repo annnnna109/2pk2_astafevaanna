@@ -21,11 +21,11 @@
                 array[i] = new string[columns[i]];
                 for (int j = 0; j < columns[i]; j++)
                 {
-                    array[i][j] = $"[{i + 1}, {j + 1}]";
+                    array[i][j] = $"[{i + 1}, {j + 1}]"; // формула 
                 }
             }
 
-            Console.WriteLine("Сгенерированный массив:"); // Выводим сгенерированный массив в консоль;
+            Console.WriteLine("Сгенерированный массив:"); // Выводим сгенерированный массив в консоль
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns[i]; j++)
